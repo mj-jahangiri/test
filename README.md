@@ -3,7 +3,7 @@
 cd ...wherever...
 git clone https://github.com/mj-jahangiri/test.git
 cd test
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 ```
 2)Create a postgres database and then Open the settings.py file and enter your postgres information in the (DATABASES) field.
 
