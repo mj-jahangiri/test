@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "1cf0714e-16f5-460a-86a0-144573ed232a",
+		"name": "search_data",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "127.0.0.1:8000/api/v1/search-color/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8000/api/v1/search-color/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"search-color",
+						""
+					]
+				},
+				"description": "blue & red car"
+			},
+			"response": []
+		},
+		{
+			"name": "127.0.0.1:8000/api/v1/search-color/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8000/api/v1/search-age_car/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"search-age_car",
+						""
+					]
+				},
+				"description": "Cars belonging to people over 70 years old"
+			},
+			"response": []
+		},
+		{
+			"name": "127.0.0.1:8000/api/v1/search-color/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8000/api/v1/search-big-car/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"search-big-car",
+						""
+					]
+				},
+				"description": "big cars have crossed the streets that are less than 20 meters wide"
+			},
+			"response": []
+		},
+		{
+			"name": "127.0.0.1:8000/api/v1/search-car-toll/?idd=2,2020-06-08T04:59:40.037524Z,2022-06-08T04:59:40.037524Z",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8000/api/v1/search-car-toll/?idd=2,2020-06-08T04:59:40.037524Z,2022-06-08T04:59:40.037524Z",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"search-car-toll",
+						""
+					],
+					"query": [
+						{
+							"key": "idd",
+							"value": "2,2020-06-08T04:59:40.037524Z,2022-06-08T04:59:40.037524Z"
+						}
+					]
+				},
+				"description": "Tolls of a person and his/her car in a certain period of time"
+			},
+			"response": []
+		},
+		{
+			"name": "127.0.0.1:8000/api/v1/search-owners-toll/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8000/api/v1/search-owners-toll/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"search-owners-toll",
+						""
+					]
+				},
+				"description": "The amount of tolls for persons in the order of the amount of tolls"
+			},
+			"response": []
+		},
+		{
+			"name": "127.0.0.1:8000/api/v1/search-station-area/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8000/api/v1/search-station-area/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"search-station-area",
+						""
+					]
+				},
+				"description": "Cars that are currently 600 meters from the toll station"
+			},
+			"response": []
+		}
+	]
+}

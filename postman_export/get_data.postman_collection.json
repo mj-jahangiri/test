@@ -1,0 +1,129 @@
+{
+	"info": {
+		"_postman_id": "2fe75bb5-c5e8-4c48-8781-fd6e987ede22",
+		"name": "get_data",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "127.0.0.1:8000/api/v1/get-person-data/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8000/api/v1/get-person-data/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"get-person-data",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "127.0.0.1:8000/api/v1/get-car-data/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8000/api/v1/get-car-data/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"get-car-data",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "127.0.0.1:8000/api/v1/get-car-data/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8000/api/v1/get-nods-data/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"get-nods-data",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "127.0.0.1:8000/api/v1/get-car-data/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8000/api/v1/get-road-data/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"get-road-data",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "127.0.0.1:8000/api/v1/get-car-data/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8000/api/v1/get-station-data/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"get-station-data",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
