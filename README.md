@@ -9,7 +9,10 @@ Create a postgres database and then Open the settings.py file and enter your pos
 
 Create the database:
 
-`python manage.py migrate`
+```
+python manage.py makemigrations
+python manage.py migrate
+```
 
 
 Finally, run the development server:
