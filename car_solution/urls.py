@@ -1,12 +1,12 @@
 from django.urls import path
-from car_solution.views import PostPersonlData,PostCarData,PostNodsData,PostRoadData,\
+from car_solution.views import PostPersonData,PostCarData,PostNodsData,PostRoadData,\
     SearchCarColor,SearchCarAge,SearchOwnersToll,GetAllNodeData,GetCarData,GetPersonData\
     ,GetRoadData,GetStationsData,SearchBigCarInWidth20,SearchOneCarToll,SerachStationArea,PostStationsData
 
 urlpatterns=[
 
     path('get-road-data/', GetRoadData.as_view()),
-    path('post-person-model/', PostPersonlData.as_view()),
+    path('post-person-model/', PostPersonData.as_view()),
     path('post-car-model/', PostCarData.as_view()),
     path('post-road-model/', PostRoadData.as_view()),
     path('post-node-model/', PostNodsData.as_view()),
