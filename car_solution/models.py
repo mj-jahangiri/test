@@ -10,10 +10,10 @@ class Person(models.Model):
     national_code = models.CharField(primary_key=True, max_length=15)
     age = models.IntegerField()
     total_toll_paid = models.IntegerField()
-    last_time_toll_update = models.DateTimeField(null=True)
+    last_time_toll_update = models.DateTimeField(null=True,default='1993-06-25T04:59:40.037524Z')
 
     def __str__(self):
-        return self.owner_name
+        return self.name
 
 class Car(models.Model):
     id = models.IntegerField(primary_key=True)
