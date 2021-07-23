@@ -51,92 +51,67 @@ class GetRoadData(APIView):
 
 # /////////////////////////////////POST DATA////////////////////////////////////////////////
 
-def post_data(model, request):
-    saved_data = []
-    unsaved_data = []
-    count = 0
-    for i in range(len(request.data)):
-        if model == 'person':
-            request.data[i].update(last_time_toll_update='1993-06-25T04:59:40.037524Z')
-            serializer = PersonModelSerializer(data=request.data[i])
-        elif model == 'nod':
-            serializer = AllNodeModelSerializer(data=request.data[i])
-        elif model == 'road':
-            serializer = RoadModelSerializer(data=request.data[i])
-        elif model == 'station':
-            serializer = StationsModelSerializer(data=request.data[i])
-        if serializer.is_valid():
-            serializer.save()
-            count += 1
-            saved_data.append(serializer.data)
-        else:
-            unsaved_data.append(serializer.data)
-    if count == len(request.data):
-        return Response(f"seved items:{saved_data}", status=status.HTTP_201_CREATED)
+def post_data(request, ModelSerializer):
+    serializer = ModelSerializer(data=request.data, many=True)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
     else:
-        return Response(f"unsaved items: {unsaved_data}", status=status.HTTP_400_BAD_REQUEST)
+        return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
-class PostPersonlData(APIView):
+class PostPersonData(APIView):
 
     def post(self, request):
-        model = 'person'
-        rsp = post_data(model, request)
-        return rsp
+        return post_data(request, PersonModelSerializer)
 
 
 class PostCarData(APIView):
 
     def post(self, request):
-        saved_data = []
-        unsaved_data = []
-        count = 0
+        car_data = []
         for i in range(len(request.data)):
-            car_data = request.data[i]['ownerCar']
+            temp = request.data[i]['ownerCar']
             code = request.data[i]['national_code']
             national_code_dict = dict(national_code=str(code))
-            for j in range(len(car_data)):
-                car_data[j].update(national_code_dict)
-                serializer = CarModelSerializer(data=car_data[j])
-                if serializer.is_valid():
-                    serializer.save()
-                    count += 1
-                    saved_data.append(serializer.data)
-                else:
-                    unsaved_data.append(serializer.data)
-        if count == len(request.data):
-            return Response(f"seved items:{saved_data}", status=status.HTTP_201_CREATED)
+            request_len=len(request.data[i]['ownerCar'])
+            for j in range(request_len):
+                temp[j].update(national_code_dict)
+            car_data.extend(temp)
+        serializer = CarModelSerializer(data=car_data,many=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
-            return Response(f"unsaved items: {unsaved_data}", status=status.HTTP_400_BAD_REQUEST)
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 class PostRoadData(APIView):
 
     def post(self, request):
-        model = 'road'
-        rsp = post_data(model, request)
-        return rsp
+        return post_data(request, RoadModelSerializer)
 
 
 class PostNodsData(APIView):
 
     def post(self, request):
-        model = 'nod'
-        rsp = post_data(model, request)
-        return rsp
+        return post_data(request, AllNodeModelSerializer)
 
 
 class PostStationsData(APIView):
 
     def post(self, request):
-        model = 'station'
-        rsp = post_data(model, request)
+        serializer = StationsModelSerializer(data=request.data, many=True)
+        if serializer.is_valid():
+            serializer.save()
+            query = Stations.objects.all()
+            for q in query:
+                query.filter(name=q.name).update(
+                    road_geo=Road.objects.filter(geom__dwithin=(q.location, 0.000025)).values('geom'))
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
-        query = Stations.objects.all()
-        for q in query:
-            query.filter(name=q.name).update(road_geo=Road.objects.filter(geom__dwithin=(q.location,0.000025)).values('geom'))
-
-        return rsp
 
 
 # /////////////////////////////SEARCH DATA///////////////////////////////////////////////////
